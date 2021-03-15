@@ -55,7 +55,17 @@ print(good+"Generate password.")
 newPassword=genPasswd(15)#if you want change the length of the password it's here.
 print(good+"Changing generate password.")
 changePasswd(userToChange,newPassword)
-Time=str(datetime.datetime.now().time().hour)+":"+str(datetime.datetime.now().time().minute)+":"+str(datetime.datetime.now().time().second)
+Date=str(datetime.datetime.now().date())
+hour=str(datetime.datetime.now().time().hour)
+minute=str(datetime.datetime.now().time().minute)
+second=str(datetime.datetime.now().time().second)
+if len(hour)<2:
+	hour="0"+hour
+if len(minute)<2:
+	minute="0"+minute
+if len(second)<2:
+	second="0"+second
+Time=hour+":"+minute+":"+second
 Date=str(datetime.datetime.now().date())
 textToSend="L'ordinateur 'PC' à été allumé a "+Time+" le "+Date+"\nMot de passe: "+newPassword#the content of the email it's here.
 for person in email:
